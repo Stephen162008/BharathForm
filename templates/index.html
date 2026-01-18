@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BharathForm - सरकारी दस्तावेज़ सरल भाषा में समझें</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Disable Right Click -->
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+
+    <style>
+        .bold-select,
+        .bold-select option {
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='images/emblem.svg') }}" alt="Satyameva Jayate" class="emblem">
+            <div class="brand-text">
+                <h1>BharathForm 🇮🇳</h1>
+                <h1 style="font-size: 18px;">(सरकारी और बैंक दस्तावेज़ सरल भाषा में समझें)</h1>
+                <p>AI Document Assistant & Simplifier</p>
+                <p>आप किसी भी तरह के डॉक्यूमेंट्स का एक्सप्लेनेशन पा सकते हैं।</p>
+                <small style="font-size: 0.7em; color: #555;">Inspired by Digital India Initiative</small>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <img src="{{ url_for('static', filename='images/swachh_bharat.png') }}" alt="Swachh Bharat"
+                class="gov-logo">
+            <img src="{{ url_for('static', filename='images/g20.png') }}" alt="G20 India" class="gov-logo">
+            <img src="{{ url_for('static', filename='images/azadi.png') }}" alt="Azadi Ka Amrit Mahotsav"
+                class="gov-logo">
+        </div>
+    </header>
+
+    <!-- GOOGLE LOGIN BUTTON -->
+    <div class="login-box">
+        {% if not user %}
+        <a href="{{ url_for('google.login') }}" class="google-btn">
+            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google">
+            <span>Sign in with Google</span>
+        </a>
+        {% else %}
+        <div class="user-box">
+            <span>Welcome, {{ user.name }}</span>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="{{ url_for('help') }}">Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <marquee onmouseover="this.stop();" onmouseout="this.start();">
+            Upload any government, bank, or any other document and get a simple explanation in your chosen language.
+            <br>
+            <span style="font-weight:700; color:#000;">
+                किसी भी सरकारी, बैंक या अन्य दस्तावेज़ को अपलोड करें और अपनी पसंदीदा भाषा में उसका सरल विवरण प्राप्त
+                करें।
+            </span>
+        </marquee>
+    </div>
+
+    <!-- 🔥 NEW: Hero Section -->
+    <div class="hero-section">
+        <h2 class="hero-title">सरकारी दस्तावेज़ों को समझना अब आसान! 🎯</h2>
+        <p class="hero-subtitle">Understanding Government Documents Made Easy!</p>
+        <div class="trust-badges">
+            <span class="badge">✅ Secure & Private</span>
+            <span class="badge">⚡ Instant Results</span>
+            <span class="badge">🇮🇳 12+ Indian Languages</span>
+        </div>
+    </div>
+
+    <!-- 🔥 NEW: How It Works Section -->
+    <div class="how-it-works">
+        <h3>कैसे काम करता है? | How It Works</h3>
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon">📤</div>
+                <h4>1. Upload</h4>
+                <p>अपना दस्तावेज़ अपलोड करें</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">🤖</div>
+                <h4>2. AI Analyzes</h4>
+                <p>AI समझेगी और विश्लेषण करेगी</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">✅</div>
+                <h4>3. Get Explanation</h4>
+                <p>सरल भाषा में समझें</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="card-header">
+            📋 Document Analysis Service | दस्तावेज़ विश्लेषण सेवा
+        </div>
+
+        <div class="card-body">
+            <form action="/analyze" method="post" enctype="multipart/form-data" onsubmit="return validateAndSubmit()">
+
+                <!-- Language Selection -->
+                <label for="language"><b>1. अपनी भाषा चुनें | Select Preferred Language</b></label>
+                <select name="language" id="language" class="bold-select language-dropdown">
+                    <option value="Hindi" selected>🇮🇳 Hindi (हिंदी)</option>
+                    <option value="English">🇬🇧 English</option>
+                    <option value="Assamese">Assamese (অসমীয়া)</option>
+                    <option value="Bengali">Bengali (বাংলা)</option>
+                    <option value="Gujarati">Gujarati (ગુજરાતી)</option>
+                    <option value="Kannada">Kannada (ಕನ್ನಡ)</option>
+                    <option value="Malayalam">Malayalam (മലയാളം)</option>
+                    <option value="Marathi">Marathi (मराठी)</option>
+                    <option value="Odia">Odia (ଓଡ଼ିଆ)</option>
+                    <option value="Punjabi">Punjabi (ਪੰਜਾਬੀ)</option>
+                    <option value="Tamil">Tamil (தமிழ்)</option>
+                    <option value="Telugu">Telugu (తెలుగు)</option>
+                    <option value="Urdu">Urdu (اردو)</option>
+                </select>
+
+                <!-- 🔥 NEW: Popular Documents Section -->
+                <div class="popular-docs">
+                    <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">
+                        📂 <b>लोकप्रिय दस्तावेज़</b> | Popular Documents:
+                    </p>
+                    <div class="doc-tags">
+                        <span class="doc-tag">Aadhaar Card</span>
+                        <span class="doc-tag">PAN Card</span>
+                        <span class="doc-tag">Passport</span>
+                        <span class="doc-tag">Bank Forms</span>
+                        <span class="doc-tag">Income Tax</span>
+                    </div>
+                </div>
+
+                <!-- Upload -->
+                <div class="upload-area-enhanced">
+                    <label for="document">
+                        <b>2. Upload Document | दस्तावेज़ अपलोड करें</b>
+                    </label>
+
+                    <div class="upload-icon">📄</div>
+
+                    <input type="file" name="document" id="document" accept="image/*,.pdf" capture="environment"
+                        required onchange="showFileName()">
+
+                    <label for="document" class="upload-label">
+                        <span class="upload-text-main">
+                            📄 दस्तावेज़ अपलोड करें
+                        </span><br>
+                        <span class="upload-text-sub">
+                            Upload Document / Take Photo
+                        </span>
+                    </label>
+
+                    <div id="fileNameDisplay" class="file-name-display"></div>
+
+                    <small style="display: block; margin-top: 15px; color: #666;">
+                        ✅ समर्थित फ़ाइलें: PDF, JPG, PNG | अधिकतम 5MB<br>
+                        🔒 आपके दस्तावेज़ सुरक्षित रूप से प्रोसेस किए जाते हैं और विश्लेषण के बाद हटा दिए जाते हैं
+                    </small>
+                </div>
+
+
+                <!-- Submit -->
+                <button type="submit" class="btn-submit-enhanced">
+                    <span class="btn-icon">🚀</span>
+                    <span class="btn-text">दस्तावेज़ का विश्लेषण करें | Analyze Document</span>
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- 🔥 NEW: Features Section -->
+    <div class="features-section">
+        <h3>क्यों BharathForm? | Why BharathForm?</h3>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h4>Secure & Private</h4>
+                <p>आपके दस्तावेज़ सुरक्षित हैं</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h4>Instant Results</h4>
+                <p>30 सेकंड में समझें</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🇮🇳</div>
+                <h4>12+ Languages</h4>
+                <p>सभी भारतीय भाषाएँ</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <h4>AI-Powered</h4>
+                <p>Advanced Technology</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="{{ url_for('contact') }}">Contact</a> |
+            <a href="/terms">Terms & Conditions</a> |
+            <a href="/about">About Us</a>
+        </div>
+        <div class="footer-bottom">
+            <p>🔒 This is a private AI tool, not an official government service.</p>
+            <p style="font-size:13px; color: #888; margin-top:10px;">
+                By using this service, you agree to our <a href="/terms" style="color: #FF9933;">Terms & Conditions</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">
+            📄 दस्तावेज़ का विश्लेषण हो रहा है...<br>
+            <span style="font-size:0.9em;">Analyzing Document...</span><br>
+            <span style="font-size:0.75em; color:#666; margin-top: 10px; display: block;">
+                कृपया प्रतीक्षा करें | Please wait...
+            </span>
+        </div>
+    </div>
+
+    <script>
+        function showFileName() {
+            const fileInput = document.getElementById('document');
+            const display = document.getElementById('fileNameDisplay');
+
+            if (fileInput.files.length > 0) {
+                const fileName = fileInput.files[0].name;
+                const fileSize = (fileInput.files[0].size / (1024 * 1024)).toFixed(2);
+                display.innerHTML = `
+                    <div style="margin-top: 15px; padding: 10px; background: #e8f5e9; border-left: 4px solid #4caf50; border-radius: 4px;">
+                        ✅ <b>Selected:</b> ${fileName} (${fileSize} MB)
+                    </div>
+                `;
+            }
+        }
+
+        function validateAndSubmit() {
+            const fileInput = document.getElementById('document');
+
+            if (fileInput.files.length === 0) {
+                alert('कृपया एक दस्तावेज़ चुनें | Please select a document');
+                return false;
+            }
+
+            const fileSize = fileInput.files[0].size / (1024 * 1024);
+            if (fileSize > 5) {
+                alert('फ़ाइल बहुत बड़ी है! अधिकतम 5MB | File too large! Maximum 5MB');
+                return false;
+            }
+
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            return true;
+        }
+    </script>
+</body>
+
+</html>

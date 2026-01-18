@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About - BharathForm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='images/emblem.svg') }}" alt="Satyameva Jayate" class="emblem">
+            <div class="brand-text">
+                <h1>BharathForm 🇮🇳</h1>
+                <p>AI Document Assistant & Simplifier</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="{{ url_for('help') }}">Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" style="margin-top: 30px;">
+        <div class="card-header">
+            ℹ️ About BharathForm | हमारे बारे में
+        </div>
+
+        <div class="card-body">
+
+            <h2 style="color: #003366;">🇮🇳 What is BharathForm?</h2>
+            <p style="line-height: 1.8; font-size: 1.05em;">
+                <b>BharathForm</b> is an AI-powered document assistant designed to help users
+                easily understand government, bank, and official documents by converting
+                complex text into simple, readable language in multiple Indian languages.
+            </p>
+
+            <h2 style="color: #003366; margin-top: 30px;">❓ Why BharathForm?</h2>
+            <p style="line-height: 1.8; font-size: 1.05em;">
+                Many official documents are difficult to understand due to complex language
+                and formatting. BharathForm bridges this gap by using artificial intelligence
+                to explain documents clearly in Indian languages, making information accessible
+                to everyone.
+            </p>
+
+            <h2 style="color: #003366; margin-top: 30px;">✨ What We Do</h2>
+            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 4px solid #FF9933;">
+                <p style="margin: 5px 0;">✅ Analyze uploaded documents securely</p>
+                <p style="margin: 5px 0;">✅ Simplify complex content using AI</p>
+                <p style="margin: 5px 0;">✅ Support 12+ Indian languages</p>
+                <p style="margin: 5px 0;">✅ Improve accessibility for all users</p>
+                <p style="margin: 5px 0;">✅ Process documents instantly (30 seconds)</p>
+            </div>
+
+            <h2 style="color: #003366; margin-top: 30px;">🎯 Our Mission</h2>
+            <p style="line-height: 1.8; font-size: 1.05em;">
+                To make government and official documents accessible to every Indian citizen,
+                regardless of their education level or language preference. We believe that
+                understanding your rights and responsibilities should never be a barrier.
+            </p>
+
+            <h2 style="color: #d32f2f; margin-top: 30px;">⚠️ Important Disclaimer</h2>
+            <div style="background: #fff3cd; padding: 15px; border-radius: 6px; border-left: 4px solid #ff9800;">
+                <p style="margin: 0; line-height: 1.7;">
+                    BharathForm is a <b>private AI tool</b> and is <b>not affiliated with, endorsed by,
+                        or operated by the Government of India</b> or any government authority.
+                    The explanations provided are for informational purposes only.
+                </p>
+            </div>
+
+            <a href="/" class="btn-submit-enhanced"
+                style="text-decoration:none; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+                <span class="btn-icon">🏠</span>
+                <span>Back to Home</span>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a> |
+            <a href="/about">About</a> |
+            <a href="{{ url_for('contact') }}">Contact</a> |
+            <a href="/terms">Terms & Conditions</a>
+        </div>
+        <div class="footer-bottom">
+            <p>🔒 This is a private AI tool, not an official government service.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

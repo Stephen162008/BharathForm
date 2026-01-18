@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result - BharathForm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='images/emblem.svg') }}" alt="Satyameva Jayate" class="emblem">
+            <div class="brand-text">
+                <h1>BharathForm 🇮🇳</h1>
+                <p>AI Document Assistant & Simplifier</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">New Analysis</a></li>
+            <li><a href="#" onclick="window.print(); return false;">🖨️ Print</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" style="margin-top: 30px;">
+        <div class="card-header">
+            ✅ विश्लेषण रिपोर्ट | Analysis Report
+        </div>
+
+        <div class="card-body">
+
+            <!-- Meta Info Box -->
+            <div class="meta-info">
+                📄 <strong>File Name:</strong> {{ filename or 'Document' }} <br>
+                🌐 <strong>Explanation Language:</strong> {{ lang or 'Hindi' }}
+            </div>
+
+            <!-- Result Section -->
+            <div
+                style="background: #f0f8ff; padding: 15px; border-left: 4px solid #FF9933; border-radius: 6px; margin-bottom: 20px;">
+                <h3 style="color: #003366; margin-top: 0;">📋 सरल व्याख्या | Simplified Explanation:</h3>
+            </div>
+
+            <!-- Explanation Content -->
+            <div class="result-content"
+                style="font-weight: 500; line-height: 2; font-size: 1.1em; background: #ffffff; border: 2px solid #e0e0e0; border-radius: 8px;">
+                {{ explanation }}
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap;">
+                <a href="/" class="btn-submit-enhanced" style="text-decoration:none; flex: 1; min-width: 200px;">
+                    <span class="btn-icon">📤</span>
+                    <span>Upload Another Document</span>
+                </a>
+
+                <button onclick="window.print()"
+                    style="flex: 1; min-width: 200px; background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%); color: white; border: none; padding: 18px 30px; font-size: 1.1em; font-weight: bold; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);">
+                    <span style="font-size: 1.3em;">🖨️</span>
+                    <span>Print / Save PDF</span>
+                </button>
+            </div>
+
+            <!-- Help Note -->
+            <div
+                style="margin-top: 25px; padding: 15px; background: #fffef9; border: 1px solid #ffd54f; border-radius: 6px;">
+                <p style="margin: 0; font-size: 0.95em; color: #555;">
+                    💡 <strong>नोट | Note:</strong> यह व्याख्या केवल सूचनात्मक उद्देश्यों के लिए है। कृपया आधिकारिक
+                    दस्तावेज़ से सत्यापित करें।
+                    <br>
+                    <em>This explanation is for informational purposes only. Please verify with official documents.</em>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a> |
+            <a href="/about">About</a> |
+            <a href="{{ url_for('help') }}">Help</a> |
+            <a href="{{ url_for('contact') }}">Contact</a> |
+            <a href="/terms">Terms & Conditions</a>
+        </div>
+        <div class="footer-bottom">
+            <p>🔒 This is a private AI platform. Information provided is for understanding only.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

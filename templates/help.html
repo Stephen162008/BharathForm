@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - BharathForm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='images/emblem.svg') }}" alt="Satyameva Jayate" class="emblem">
+            <div class="brand-text">
+                <h1>BharathForm 🇮🇳</h1>
+                <p>AI Document Assistant & Simplifier</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="{{ url_for('help') }}">Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" style="margin-top: 30px;">
+        <div class="card-header">
+            ❓ मदद और सहायता | Help & Support
+        </div>
+
+        <div class="card-body">
+
+            <p style="font-size: 1.1em; line-height: 1.8;">
+                Welcome to <strong>BharathForm</strong>. This page helps you understand how to use our document analysis
+                platform easily.
+            </p>
+
+            <h2 style="color: #003366; margin-top: 30px;">📤 How to Analyze a Document</h2>
+            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 4px solid #138808;">
+                <p><strong>Step 1:</strong> Select your preferred language from the dropdown</p>
+                <p><strong>Step 2:</strong> Upload your document (PDF, JPG, or PNG)</p>
+                <p><strong>Step 3:</strong> Click "Analyze Document"</p>
+                <p><strong>Step 4:</strong> Wait 20-30 seconds for AI to process</p>
+                <p><strong>Step 5:</strong> Read your simplified explanation!</p>
+            </div>
+
+            <h2 style="color: #003366; margin-top: 30px;">📄 Supported Document Types</h2>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; text-align: center;">
+                    <span style="font-size: 2em;">🪪</span>
+                    <p style="margin: 5px 0; font-weight: 600;">Aadhaar Card</p>
+                </div>
+                <div style="background: #f3e5f5; padding: 15px; border-radius: 8px; text-align: center;">
+                    <span style="font-size: 2em;">💳</span>
+                    <p style="margin: 5px 0; font-weight: 600;">PAN Card</p>
+                </div>
+                <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; text-align: center;">
+                    <span style="font-size: 2em;">🛂</span>
+                    <p style="margin: 5px 0; font-weight: 600;">Passport</p>
+                </div>
+                <div style="background: #fff9c4; padding: 15px; border-radius: 8px; text-align: center;">
+                    <span style="font-size: 2em;">🏦</span>
+                    <p style="margin: 5px 0; font-weight: 600;">Bank Forms</p>
+                </div>
+            </div>
+
+            <h2 style="color: #003366; margin-top: 30px;">🌐 Supported Languages</h2>
+            <p style="line-height: 1.8;">
+                Hindi, English, Assamese, Bengali, Gujarati, Kannada, Malayalam,
+                Marathi, Odia, Punjabi, Tamil, Telugu, Urdu (12+ languages!)
+            </p>
+
+            <h2 style="color: #003366; margin-top: 30px;">⚠️ Common Issues & Solutions</h2>
+            <div style="background: #fff3cd; padding: 20px; border-radius: 8px; border-left: 4px solid #ffa000;">
+                <p><strong>❌ "Could not extract text"</strong></p>
+                <p style="margin-left: 20px;">→ Try taking a clearer photo with better lighting</p>
+                <p style="margin-left: 20px;">→ Ensure document is not blurry or rotated</p>
+
+                <p style="margin-top: 15px;"><strong>❌ File too large</strong></p>
+                <p style="margin-left: 20px;">→ Maximum file size is 5MB</p>
+                <p style="margin-left: 20px;">→ Compress your image or PDF before uploading</p>
+
+                <p style="margin-top: 15px;"><strong>❌ Slow processing</strong></p>
+                <p style="margin-left: 20px;">→ Large documents (10+ pages) take longer</p>
+                <p style="margin-left: 20px;">→ Wait up to 1-2 minutes for complex PDFs</p>
+            </div>
+
+            <h2 style="color: #003366; margin-top: 30px;">🔒 Privacy & Security</h2>
+            <p style="line-height: 1.8;">
+                ✅ Your documents are processed securely<br>
+                ✅ Files are automatically deleted after analysis<br>
+                ✅ We do not store or share your data<br>
+                ✅ All processing happens on secure servers
+            </p>
+
+            <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center;">
+                <h3 style="color: #1976d2; margin-top: 0;">Need More Help?</h3>
+                <p style="margin: 10px 0;">Contact us at:</p>
+                <a href="mailto:seelamreuben@gmail.com"
+                    style="color: #1976d2; font-weight: bold; font-size: 1.1em; text-decoration: none;">
+                    📧 seelamreuben@gmail.com
+                </a>
+            </div>
+
+            <a href="/" class="btn-submit-enhanced"
+                style="text-decoration:none; display: flex; align-items: center; justify-content: center;">
+                <span class="btn-icon">🏠</span>
+                <span>Back to Home</span>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/">Home</a> |
+            <a href="/about">About</a> |
+            <a href="{{ url_for('contact') }}">Contact</a> |
+            <a href="/terms">Terms & Conditions</a>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 BharathForm. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
